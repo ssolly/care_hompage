@@ -41,5 +41,11 @@ public class MemberServiceImpl implements MemberService {
 		model.addAttribute("memberList",mapper.memberInfo());
 	}
 
+	@Override
+	public void info(Model model, String id) {
+		model.addAttribute("info",mapper.userCheck(id));
+	}
+	
+
 
 }

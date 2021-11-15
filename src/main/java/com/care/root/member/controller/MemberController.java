@@ -100,5 +100,10 @@ public class MemberController implements MemberSessionName {
 		}
 		return "redirect:login";
 	}
-
+	
+	@GetMapping("info")
+	public String info(@RequestParam String id, Model model) {	//개인정보만 출력하는 info.jsp
+		ms.info(model,id);
+		return "member/info";
+	}
 }
