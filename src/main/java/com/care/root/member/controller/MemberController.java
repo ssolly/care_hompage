@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -87,6 +88,17 @@ public class MemberController implements MemberSessionName {
 		session.invalidate();
 		System.out.println("로그아웃 진행 : session,cookie 삭제");
 		return "redirect:/index";		// '/'로 최상위부터 연결
+	}
+	
+	@GetMapping("memberInfo")
+	public String memberInfo(Model model, HttpSession session) { //jsp파일까지 값을 전달해야하기 때문에 Model 객체 사용
+		System.out.println("membership 선택");
+		if(session.getAttribute(LOGIN)!=null) {
+			System.out.println(LOGIN+" 회원 : membership 선택");
+			ms.memberInfo(model);
+			return "member/memberinfo";
+		}
+		return "redirect:login";
 	}
 
 }

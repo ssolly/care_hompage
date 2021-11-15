@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.care.root.member.dto.MemberDTO;
 import com.care.root.mybatis.member.MemberMapper;
@@ -34,5 +35,11 @@ public class MemberServiceImpl implements MemberService {
 		map.put("id", id);
 		mapper.keepLogin(map);
 	}
+
+	@Override
+	public void memberInfo(Model model) {
+		model.addAttribute("memberList",mapper.memberInfo());
+	}
+
 
 }
