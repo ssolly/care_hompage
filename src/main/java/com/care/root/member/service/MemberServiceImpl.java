@@ -69,6 +69,11 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return result;
 	}
+
+	@Override
+	public MemberDTO getUserSessionId(String sessionId) {
+		return mapper.getUserSessionId(sessionId);
+	}
 	
 
 

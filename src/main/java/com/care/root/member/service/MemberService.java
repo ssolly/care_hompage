@@ -13,4 +13,6 @@ public interface MemberService {
 	public void memberInfo(Model model);
 	public void info(Model model, String id);
 	public int register(MemberDTO dto);
+	public MemberDTO getUserSessionId(String sessionId);
+	
 }
