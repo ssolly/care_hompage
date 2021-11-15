@@ -32,10 +32,12 @@
  				<td><input type="password" name="pw" placeholder="input password"></td>
  			</tr>
  			<tr>
- 				<td colspan="3" style="text-align:right;">
+ 				<td colspan="2" style="padding-left:20px;">
  					<label class="mem_reg" onclick="location.href='register_form'"> join membership</label>
  					&ensp; <!-- label 안쓰고 a href 태그 사용 가능 -->
  					<label> find id/password </label>
+ 				</td>
+ 				<td>
  					<input type="checkbox" name="autoLogin" class="chkBox"><label>auto login</label> &ensp;
  				</td>
  			</tr>

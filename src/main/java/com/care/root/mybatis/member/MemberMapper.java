@@ -13,5 +13,6 @@ public interface MemberMapper {
 	public MemberDTO userCheck(String id);
 	public void keepLogin(Map<String,Object> map);
 	public ArrayList<MemberDTO> memberInfo();
+	public int register(MemberDTO dto);
 	
 }

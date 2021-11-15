@@ -45,6 +45,17 @@ public class MemberServiceImpl implements MemberService {
 	public void info(Model model, String id) {
 		model.addAttribute("info",mapper.userCheck(id));
 	}
+
+	@Override
+	public int register(MemberDTO dto) {
+		int result=0;
+		try {
+			result=mapper.register(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
 
 
