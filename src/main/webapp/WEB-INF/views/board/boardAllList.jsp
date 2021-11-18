@@ -13,6 +13,7 @@
 	table tr:nth-child(odd){background-color:#EBF3F9;}
 	table tr th{font-size:17px; color:#34597F; background-color:#D1DCE8; padding:2px 25px; }
 	table tr td{color:#183755; padding:2px 25px;}
+	table tr td a{color:#183755;}
 	button{color:#183755; background-color:#B7CDE4; margin-top:20px;}
 </style>
 </head>
@@ -32,13 +33,13 @@
 		<tr>
 		<c:if test="${boardList.size() == 0 }">
 		<tr>
-			<td colspan="6">저장 데이터 없음</td>
+			<td colspan="6">Don't have any saved data</td>
 		</tr>
 		</c:if>
 		<c:forEach var="dto" items="${boardList }">
 		<tr>
 			<td>${dto.writeNo }</td> <td>${dto.id }</td> 
-			<td><a href="${contextPath }/board/writeForm">${dto.title }</a></td>
+			<td><a href="${contextPath }/board/contentView?writeNo=${dto.writeNo}">${dto.title }</a></td>
 			<td>${dto.saveDate }</td> 
 			<td>${dto.hit }</td> 
 			<td>${dto.imageFileName }</td>

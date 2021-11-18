@@ -34,15 +34,15 @@ public class BoardDTO {
 	public String getSaveDate() {
 		return saveDate;
 	}
+	/*	밑에걸로 바꾼 이유 : 2021-11-18 11:11:11.0 으로 '.0'이 붙기 때문
 	public void setSaveDate(String saveDate) {
 		this.saveDate = saveDate;
 	}
-	/*
+	*/
 	public void setSaveDate(Timestamp saveDate) {	//DB와 연동시 수정 필요 //java.sql.Timestamp
 		SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 		this.saveDate = fo.format(saveDate);
 	}
-	*/
 	public int getHit() {
 		return hit;
 	}
