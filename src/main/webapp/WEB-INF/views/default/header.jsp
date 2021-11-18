@@ -36,7 +36,7 @@
 			<ul>
 				<li><a href="${contextPath }/index">HOME</a></li>
 				<li><a href="${contextPath }/member/memberInfo">MEMBERSHIP</a></li>
-				<li><a href="${contextPath }/board/board">BOARD</a>
+				<li><a href="${contextPath }/board/boardAllList">BOARD</a>
 				<li>
 				<c:choose>
 					<c:when test="${loginUser!=null }">	<!-- loginUser 세션이 있다면 -->

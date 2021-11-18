@@ -32,6 +32,7 @@
 		<interceptor>
 			<!-- <mapping path="/index"/> : index가 요청이 되면 memberInterceptor를 동작시켜라 -->
 			<mapping path="/member/memberInfo" />
+			<mapping path="/board/writeForm" />	
 			<beans:ref bean="memberInterceptor" />
 		</interceptor>
 		<interceptor>
