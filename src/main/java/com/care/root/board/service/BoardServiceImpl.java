@@ -59,4 +59,17 @@ public class BoardServiceImpl implements BoardService{
 		mapper.upHit(writeNo);
 	}
 
+	@Override
+	public String boardDelete(int writeNo, String imageFileName, HttpServletRequest request) {
+		int result=mapper.delete(writeNo);
+		String message=null;
+		if(result==1) {	//db 삭제 성공
+			bfs.deleteImage(imageFileName);	//파일에서 image도 삭제
+			message = bfs.getMessage(request, "삭제 성공", "/board/boardAllList");
+		} else {
+			message = bfs.getMessage(request, "삭제 실패", "/board/contentView");
+		}
+		return message;
+	}
+
 }
