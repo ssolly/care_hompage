@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.care.root.board.dto.BoardDTO;
+import com.care.root.board.dto.BoardRepDTO;
 
 @Repository
 public interface BoardMapper {
@@ -15,4 +16,7 @@ public interface BoardMapper {
 	public void upHit(int writeNo);
 	public int delete(int writeNo);
 	public int modify(BoardDTO dto);
+	public int addReply(BoardRepDTO dto);
+	public List<BoardRepDTO> getRepList(int write_group);
+	
 }

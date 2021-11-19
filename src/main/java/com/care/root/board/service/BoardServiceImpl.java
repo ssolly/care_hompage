@@ -1,5 +1,7 @@
 package com.care.root.board.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.care.root.board.dto.BoardDTO;
+import com.care.root.board.dto.BoardRepDTO;
 import com.care.root.common.MemberSessionName;
 import com.care.root.mybatis.board.BoardMapper;
 
@@ -103,6 +106,23 @@ public class BoardServiceImpl implements BoardService{
 		}
 		String message = bfs.getMessage(request, msg, url);
 		return message;
+	}
+
+	@Override
+	public String addReply(BoardRepDTO dto) {
+		int result = mapper.addReply(dto);
+		String msg=null;
+		if(result==1) {
+			msg="{\"result\" : true}";
+		} else {
+			msg="{\"result\" : false}";
+		}
+		return msg;
+	}
+
+	@Override
+	public List<BoardRepDTO> getReplyList(int write_group) {
+		return mapper.getRepList(write_group);
 	}
 
 	
