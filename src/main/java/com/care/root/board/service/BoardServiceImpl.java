@@ -87,6 +87,8 @@ public class BoardServiceImpl implements BoardService{
 		MultipartFile file = mul.getFile("imageFileName");
 		if(file.getSize() != 0 ) { //수정 전 이미지 존재
 			//이미지 변경시
+			dto.setImageFileName(bfs.saveFile(file));
+			bfs.deleteImage(mul.getParameter("originFileName"));
 		}else {
 			dto.setImageFileName(mul.getParameter("originFileName"));
 		}

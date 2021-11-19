@@ -36,7 +36,7 @@
 		<h2>Modify</h2>
 		<form action="${contextPath}/board/modify" enctype="multipart/form-data" method="post">
 			<input type="hidden" name="writeNo" value="${personalData.writeNo}">
-			<input type="hidden" name="originFileName" value="${personalData.imageFileName}"> <!-- 기존에 있던 이미지가 수정될 수 있기 때문에 가져가야하는 정보  -->
+			<input type="hidden" name="originFileName" value="${personalData.imageFileName}">  <!-- 기존에 있던 이미지가 수정될 수 있기 때문에 가져가야하는 정보  -->
 			<label class="bold" style="margin-right:335px;">Title</label><br>
 			<input type="text" name="title" value="${personalData.title}" style="width:350px;  margin-right:10px;">
 			<hr class="line">
@@ -44,11 +44,11 @@
 			<textarea rows="10" cols="50" name="content">${personalData.content}</textarea>
 			<hr class="line">
 			<label class="bold" style="margin-right:300px;">ImageFile</label><br>
-			<input type="file" name="image_file_name" onchange="readURL(this);" style="font-size:11px;">
+			<input type="file" name="imageFileName" onchange="readURL(this);" style="font-size:11px;">
 			<c:if test="${ personalData.imageFileName != 'nan' }">
 				<img width="150px" height="100px" id="preview"
 					src="${contextPath}/board/download?imageFileName=${personalData.imageFileName}">
-			</c:if>
+			</c:if>	
 			<hr class="line">
 			<input type="submit" value="MODIFY" class="btn"> 
 			<input type="button" onclick="history.back()" value="CANCEL" class="btn">
