@@ -71,4 +71,21 @@ public class BoardController {
 		out = response.getWriter();
 		out.println(message);
 	}
+	
+	@GetMapping("/modify_form")
+	public String modify_form(@RequestParam int writeNo, Model model) {
+		bs.getData(writeNo,model);
+		return "board/modify_form";
+	}
+	
+	@PostMapping("modify")
+	public void modify(MultipartHttpServletRequest mul,
+			HttpServletResponse response,
+			HttpServletRequest request) throws IOException {
+		String message = bs.modify(mul, request);
+		PrintWriter out=null;
+		response.setContentType("text/html; charset=utf-8");
+		out = response.getWriter();
+		out.println(message);
+	}
 }

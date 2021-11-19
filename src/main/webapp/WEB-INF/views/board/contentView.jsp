@@ -52,11 +52,12 @@
 		</tr>
 		</table>
 		<c:if test="${ loginUser == personalData.id }">
-			<input type="button" onclick="" value="MODIFY" class="btn">
-			<input type="button" onclick="location.href='${contextPath }/board/delete?writeNo=${personalData.writeNo }&imageFileName=${personalData.imageFileName}'" value="DELETE" class="btn">
+			<input type="button" onclick="location.href='${contextPath }/board/modify_form?writeNo=${personalData.writeNo }'" value="MODIFY" class="btn">
+			<input type="button" onclick="location.href='${contextPath }/board/delete?writeNo=${personalData.writeNo }&imageFileName=${personalData.imageFileName}'" 
+				   value="DELETE" class="btn"> <!-- writeNo : DB의 내용 삭제, imageFileName : 저장소에서 파일 삭제 -->
 		</c:if> 
 			<input type="button" onclick="" 
-					value="REPLY" class="btn"> 	<!-- writeNo : DB의 내용 삭제, imageFileName : 저장소에서 파일 삭제 -->
+			 	   value="REPLY" class="btn"> 	
 			<input type="button" onclick="location.href='${contextPath}/board/boardAllList'" value="LIST" class="btn">
 		
 	
