@@ -28,8 +28,9 @@ public class BoardController {
 	@Autowired BoardService bs;
 	
 	@GetMapping("/boardAllList")
-	public String selectAllBoardList(Model model) {
-		bs.selectAllBoardList(model);
+	public String selectAllBoardList(Model model, @RequestParam(required=false, defaultValue="1") int num) {
+												  //paging처리를 위함 : 값이 없다면 디폴트 1
+		bs.selectAllBoardList(model, num);
 		return "board/boardAllList";
 	}
 	

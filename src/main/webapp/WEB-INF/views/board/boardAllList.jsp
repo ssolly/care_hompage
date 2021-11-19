@@ -21,7 +21,7 @@
 <c:import url="../default/header.jsp" />
 	<div class="wrap">
 	<table>
-		<caption><b>Board</b>
+		<caption><b>Board</b></caption>
 		<tr>
 			<th>No.</th>
 			<th>ID</th>
@@ -46,7 +46,11 @@
 		</tr>
 		</c:forEach>
 	</table>
-	
+	<div align="center" style="margin-top:15px;">
+		<c:forEach var="num" begin="1" end="${repeat}">
+			<a href="boardAllList?num=${num }" style="color:#183755;"> [${num }]</a>
+		</c:forEach>
+				</div>
 	<button type="button" onclick="location.href='writeForm'">WRTIE</button>
 	</div>
 <c:import url="../default/footer.jsp" />

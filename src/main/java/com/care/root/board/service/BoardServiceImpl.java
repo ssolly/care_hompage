@@ -23,8 +23,18 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired BoardFileService bfs;
 	
 	@Override
-	public void selectAllBoardList(Model model) {	//jsp에 전달해줘야하기 떄문에 model 객체 필요
-		model.addAttribute("boardList",mapper.selectAllBoardList());
+	public void selectAllBoardList(Model model, int num) {	//jsp에 전달해줘야하기 떄문에 model 객체 필요
+		int pageLetter = 5;
+		int allCount = mapper.selectBoardCount();
+		int repeat = allCount/pageLetter;
+		if(allCount%pageLetter != 0) {
+			repeat += 1;
+		}
+		int end = num*pageLetter;
+		int start = end+1 - pageLetter;
+		
+		model.addAttribute("repeat",repeat);
+		model.addAttribute("boardList",mapper.selectAllBoardList(start,end));	//값이 두개 이상 넘어가면 값을 명시해줘야한다
 	}
 
 	@Override
